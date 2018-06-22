@@ -13,6 +13,7 @@ namespace NPCGenerator.GUI
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class GeneratorPage : ContentPage
     {
+        
         ObservableCollection<string> Liste { get; set; } = new ObservableCollection<string>() { "hallo", "Tobi" };
 		public GeneratorPage ()
 		{
