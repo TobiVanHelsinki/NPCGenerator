@@ -7,9 +7,8 @@
             <Label Text="Welcome to Xamarin.Forms!"
                 VerticalOptions="CenterAndExpand" 
                 HorizontalOptions="CenterAndExpand" />
-            <ListView BackgroundColor="Red" ItemsSource="{x:Binding Liste, Mode=TwoWay}"/>
-
-
+            <ListView BackgroundColor="Red" ItemsSource="{Binding TestList, Mode=TwoWay}"/>
+            <Label Text="{Binding GenreName}"></Label>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
