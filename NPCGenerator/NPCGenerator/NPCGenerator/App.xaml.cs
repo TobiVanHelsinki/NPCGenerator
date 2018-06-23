@@ -19,10 +19,10 @@ namespace NPCGenerator
         }
         void CreateTestModel()
         {
-            AppModel.Instance.Genres.Add(new GenreModel() {GenreName = "Fantasy" });
-            AppModel.Instance.Genres.Add(new GenreModel() {GenreName = "Shadowrun" });
-            AppModel.Instance.Genres.Add(new GenreModel() {GenreName = "Modern" });
-            AppModel.Instance.Genres.Add(new GenreModel() {GenreName = "More" });
+            AppModel.Instance.Genres.Add(new GenreModel() {GenreName = "Fantasy", ImagePath = "fantasy.jpg" });
+            AppModel.Instance.Genres.Add(new GenreModel() {GenreName = "Shadowrun", ImagePath = "shadowrun.png" });
+            AppModel.Instance.Genres.Add(new GenreModel() {GenreName = "Modern", ImagePath = "modern.jpg" });
+            AppModel.Instance.Genres.Add(new GenreModel() {GenreName = "More", ImagePath = "more.jpg" });
 
             AppModel.Instance.AllProperties.Add(new PropertyModel() { PropertyName = "Name" });
             AppModel.Instance.AllProperties.Add(new PropertyModel() { PropertyName = "Race" });

@@ -9,28 +9,31 @@ namespace NPCGenerator.Model
 {
     class GenreModel : INotifyPropertyChanged
 	{
-        #region NotifyPropertyChanged
-		public event PropertyChangedEventHandler PropertyChanged;
-        protected void NotifyPropertyChanged([CallerMemberName] string propertyName = "")
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
-        #endregion
-        String _GenreName;
-
-        public GenreModel(string Name = "Default")
-        {
-            GenreName = Name;
-            UsedProperties = new ObservableCollection<PropertyModel>();
-        }
-
-        public String GenreName
+        string _GenreName;
+        public string GenreName
         {
             get { return _GenreName; }
             set { if (_GenreName != value) { _GenreName = value; NotifyPropertyChanged(); } }
         }
 
+        public string ImagePath { get; set; }
+
         public ObservableCollection<PropertyModel> UsedProperties { get; set; }
+
+        #region NotifyPropertyChanged
+        public event PropertyChangedEventHandler PropertyChanged;
+        protected void NotifyPropertyChanged([CallerMemberName] string propertyName = "")
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+        #endregion
+
+        public GenreModel(string Name = "Default", string Path = "Xamarin.png")
+        {
+            GenreName = Name;
+            ImagePath = Path;
+            UsedProperties = new ObservableCollection<PropertyModel>();
+        }
 
         public override string ToString()
         {
