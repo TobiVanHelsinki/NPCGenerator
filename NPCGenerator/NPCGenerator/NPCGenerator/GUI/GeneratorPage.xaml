@@ -12,28 +12,39 @@
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="Auto"/>
                         <ColumnDefinition Width="Auto"/>
-                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
-                    <Label Grid.Column="0" Text="{Binding PropertyName, Mode=OneWay}" />
-                    <Label Grid.Column="1" Text="{Binding Typ, Mode=OneWay}" />
-                    <Label Grid.Column="2" Text="{Binding Content, Mode=OneWay}" />
+                    <Label Grid.Column="0" Text="{Binding PropertyName, Mode=OneWay}" FontSize="Medium"/>
+                    <!--<Label Grid.Column="1" Text="{Binding Typ, Mode=OneWay}" FontSize="Medium"/>-->
+                    <Label Grid.Column="2" Text="{Binding Content, Mode=OneWay}" FontSize="Medium"/>
                 </Grid>
             </ViewCell>
         </DataTemplate>
     </ContentPage.Resources>
     <ContentPage.Content>
-        <Grid>
+        <Grid Margin="10,5,10,5">
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
             <StackLayout x:Name="CurrentGenrePanel">
-                <Label Text="{Binding GenreName, Mode=OneWay}"/>
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Current Genre: " FontAttributes="Italic" FontSize="Large"/>
+                    <Label Text="{Binding GenreName, Mode=OneWay}" FontAttributes="Italic" FontSize="Large"/>
+                </StackLayout>
+                <Label Text="Character properties: " FontAttributes="Bold" FontSize="Large"/>
                 <ListView ItemsSource="{Binding UsedProperties, Mode=TwoWay}" ItemTemplate="{StaticResource PropTemplate}"/>
             </StackLayout>
-            <Button Grid.Row="3" x:Name="TestBtn" Text="Change Model" Clicked="Button_Clicked"/>
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="2*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Button Grid.Column="0" Text="Reset" Clicked="Reset_Clicked"/>
+                <Button Grid.Column="1" Text="Generate" Clicked="Generate_Clicked"/>
+                <Button Grid.Column="2" Text="Impressum" Clicked="Impressum_Clicked"/>
+            </Grid>
         </Grid>
     </ContentPage.Content>
 </ContentPage>
