@@ -12,11 +12,11 @@ namespace NPCGenerator.Model
         public PropertyTypes Typ { get; set; }
         public object Content { get; set; }
 
-        string _Name;
-        public string Name
+        string _PropertyName;
+        public string PropertyName
         {
-            get { return _Name; }
-            set { if (_Name != value) { _Name = value; NotifyPropertyChanged(); } }
+            get { return _PropertyName; }
+            set { if (_PropertyName != value) { _PropertyName = value; NotifyPropertyChanged(); } }
         }
         #region NotifyPropertyChanged
 		public event PropertyChangedEventHandler PropertyChanged;

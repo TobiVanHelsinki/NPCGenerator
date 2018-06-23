@@ -19,26 +19,16 @@ namespace NPCGenerator
         }
         void CreateTestModel()
         {
-            AppModel.Instance.Genres.Add(new GenreModel() {GenreName = "Name1" });
-            AppModel.Instance.Genres.Add(new GenreModel() {GenreName = "Name2" });
-            AppModel.Instance.Genres.Add(new GenreModel() {GenreName = "Name3" });
-            AppModel.Instance.CurrentGenre = AppModel.Instance.Genres.FirstOrDefault();
-            AppModel.Instance.AllProperties.Add(new PropertyModel() { Name = "Prop1" });
-            AppModel.Instance.AllProperties.Add(new PropertyModel() { Name = "Prop2" });
-            AppModel.Instance.AllProperties.Add(new PropertyModel() { Name = "Prop3" });
-            AppModel.Instance.AllProperties.Add(new PropertyModel() { Name = "Prop4" });
-            AppModel.Instance.AllProperties.Add(new PropertyModel() { Name = "Prop5" });
-            AppModel.Instance.AllProperties.Add(new PropertyModel() { Name = "Prop6" });
+            AppModel.Instance.Genres.Add(new GenreModel() {GenreName = "Fantasy" });
+            AppModel.Instance.Genres.Add(new GenreModel() {GenreName = "Shadowrun" });
+            AppModel.Instance.Genres.Add(new GenreModel() {GenreName = "Modern" });
+            AppModel.Instance.Genres.Add(new GenreModel() {GenreName = "More" });
 
-            AppModel.Instance.Genres[0].UsedProperties.Add(AppModel.Instance.AllProperties[0]);
-            AppModel.Instance.Genres[0].UsedProperties.Add(AppModel.Instance.AllProperties[1]);
-
-            AppModel.Instance.Genres[1].UsedProperties.Add(AppModel.Instance.AllProperties[2]);
-            AppModel.Instance.Genres[1].UsedProperties.Add(AppModel.Instance.AllProperties[3]);
-
-            AppModel.Instance.Genres[2].UsedProperties.Add(AppModel.Instance.AllProperties[4]);
-            AppModel.Instance.Genres[2].UsedProperties.Add(AppModel.Instance.AllProperties[5]);
-
+            AppModel.Instance.AllProperties.Add(new PropertyModel() { PropertyName = "Name" });
+            AppModel.Instance.AllProperties.Add(new PropertyModel() { PropertyName = "Race" });
+            AppModel.Instance.AllProperties.Add(new PropertyModel() { PropertyName = "Sex" });
+            AppModel.Instance.AllProperties.Add(new PropertyModel() { PropertyName = "Age" });
+            AppModel.Instance.AllProperties.Add(new PropertyModel() { PropertyName = "Moral" });
         }
 
         protected override void OnStart ()
