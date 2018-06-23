@@ -8,7 +8,7 @@
                 VerticalOptions="CenterAndExpand" 
                 HorizontalOptions="CenterAndExpand" />
             <ListView BackgroundColor="Red" ItemsSource="{Binding TestList, Mode=TwoWay}"/>
-            <Label Text="{Binding GenreName}"></Label>
+            <Label Text="{x:Binding AppModel.Genres}"></Label>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

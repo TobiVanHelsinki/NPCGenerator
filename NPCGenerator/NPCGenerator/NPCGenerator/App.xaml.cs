@@ -1,4 +1,5 @@
 using NPCGenerator.GUI;
+using NPCGenerator.Model;
 using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -11,11 +12,18 @@ namespace NPCGenerator
 		public App ()
 		{
 			InitializeComponent();
+            CreateTestModel();
 
             MainPage = new NavigationPage(new MainPage());
         }
+        void CreateTestModel()
+        {
+            AppModel.Instance.Genres.Add(new GenreModel() {GenreName = "Name1" });
+            AppModel.Instance.Genres.Add(new GenreModel() {GenreName = "Name2" });
+            AppModel.Instance.Genres.Add(new GenreModel() {GenreName = "Name3" });
+        }
 
-		protected override void OnStart ()
+        protected override void OnStart ()
 		{
 			// Handle when your app starts
 		}
