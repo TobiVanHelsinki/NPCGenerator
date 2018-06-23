@@ -30,19 +30,29 @@ namespace NPCGenerator
             AppModel.Instance.AllProperties.Add(new PropertyModel() { PropertyName = "Sex", Typ = PropertyTypes.String });
             AppModel.Instance.AllProperties.Add(new PropertyModel() { PropertyName = "Age", Typ = PropertyTypes.Int });
             AppModel.Instance.AllProperties.Add(new PropertyModel() { PropertyName = "Job", Typ = PropertyTypes.String });
-            AppModel.Instance.AllProperties.Add(new PropertyModel() { PropertyName = "Abiliy", Typ = PropertyTypes.String, Content = "Hunting" });
-            AppModel.Instance.AllProperties.Add(new PropertyModel() { PropertyName = "Abiliy", Typ = PropertyTypes.String, Content = "Singing" });
-            AppModel.Instance.AllProperties.Add(new PropertyModel() { PropertyName = "Abiliy", Typ = PropertyTypes.String, Content = "Dancing" });
-            AppModel.Instance.AllProperties.Add(new PropertyModel() { PropertyName = "Abiliy", Typ = PropertyTypes.String, Content = "Reading" });
+            AppModel.Instance.AllProperties.Add(new PropertyModel() { PropertyName = "Abilities", Typ = PropertyTypes.String, Content = "NDY" });
+            AppModel.Instance.AllProperties.Add(new PropertyModel() { PropertyName = "Eyes", Typ = PropertyTypes.String });
+            AppModel.Instance.AllProperties.Add(new PropertyModel() { PropertyName = "Hair", Typ = PropertyTypes.String });
             AppModel.Instance.AllProperties.Add(new PropertyModel() { PropertyName = "Special_Placeholder", Typ = PropertyTypes.Boolean, Content = "false" });
 
-            AppModel.Instance.Genres[0].UsedProperties.Add(AppModel.Instance.AllProperties[0]);
-            AppModel.Instance.Genres[0].UsedProperties.Add(AppModel.Instance.AllProperties[1]);
 
-            AppModel.Instance.Genres[1].UsedProperties.Add(AppModel.Instance.AllProperties[2]);
-            AppModel.Instance.Genres[1].UsedProperties.Add(AppModel.Instance.AllProperties[3]);
+            for (int i = 0; i < AppModel.Instance.AllProperties.Count; i++)
+            {
+                for (int j = 0; j < AppModel.Instance.Genres.Count; j++)
+                {
+                    AppModel.Instance.Genres[j].UsedProperties.Add(AppModel.Instance.AllProperties[i]);
+                }
+            }
 
-            AppModel.Instance.Genres[2].UsedProperties.Add(AppModel.Instance.AllProperties[4]);
+
+            
+            //AppModel.Instance.Genres[0].UsedProperties.Add(AppModel.Instance.AllProperties[0]);
+            //AppModel.Instance.Genres[0].UsedProperties.Add(AppModel.Instance.AllProperties[1]);
+
+            //AppModel.Instance.Genres[1].UsedProperties.Add(AppModel.Instance.AllProperties[2]);
+            //AppModel.Instance.Genres[1].UsedProperties.Add(AppModel.Instance.AllProperties[3]);
+
+            //AppModel.Instance.Genres[2].UsedProperties.Add(AppModel.Instance.AllProperties[4]);
 
             Services.GenerateChar.RandomTraits();
 
