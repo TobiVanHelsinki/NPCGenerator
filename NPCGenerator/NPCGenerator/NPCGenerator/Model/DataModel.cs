@@ -11,10 +11,10 @@ namespace NPCGenerator.Model
         static public List<String> ObjectNameList = new List<string>() {"Subject 47", "Object 2", "Prisoner  Zero", "Kieselchen", "Thing", "Zyrilix" };
         static public List<String> SexList = new List<string>() {"Male","Female","Neutral","a stone" };
         static public List<String> RaceList = new List<string>() { "Human", "Elf", "Dwarf", "Windling", "Orc", "A.I.", "Mutant", "Hobbit", "Ghost" };
-        static public List<String> JobFantasyList = new List<string>() {"Warrior", "Mage", "Thief", "Singer", "Scout", "Scholar", "Hunter"};
+        static public List<String> JobFantasyList = new List<string>() {"Warrior", "Mage", "Thief", "Singer", "Scout", "Scholar", "Hunter", "Farmer"};
         static public List<String> JobShandowrunList = new List<string>() { "StreetSam", "Hacker", "Rigger", "Mage", "Adept", "Social", "Squater", "Ganger", "Exec", "Smuggler"};
         static public List<String> JobModernList = new List<string>() {"Teacher", "Baker", "Doctor", "Student", "Taxidriver", "Programmer", "Barkeeper" };
-        static public List<String> JobFallbackList = new List<string>() {"Adventurer", "Pirate", "Dancer", "Cop", "Politican" };
+        static public List<String> JobFallbackList = new List<string>() {"Adventurer", "Pirate", "Dancer", "Cop", "Politican", "Engineer", "Salesman" };
         static public List<String> AbilityJobFantasy = new List<string>() { };
         static public List<String> AbilityHobby = new List<string>() { "Cooking", "Chess", "Crafting", "Gambling", "Climbing", "Drawing", "Football", "Swimming" };
         static public List<String> EyeList = new List<string>() { "Blue", "Green", "Red", "Amber", "Silver", "Seagreen", "Brown", "Blind", "No Eyes", "Golden Cateyes", "Grey"};
