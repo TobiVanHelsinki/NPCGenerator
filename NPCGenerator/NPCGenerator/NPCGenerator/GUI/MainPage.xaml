@@ -5,11 +5,9 @@
              x:Class="NPCGenerator.GUI.MainPage">
 
     <StackLayout>
-        <!-- Place new controls here -->
-    	<Label Text="Welcome to Xamarin.Forms!" 
-           HorizontalOptions="Center"
-           VerticalOptions="CenterAndExpand" />
-        <Button Text="Navigate" Clicked="Button_Clicked"/>
+        <ListView ItemsSource="{Binding Genres, Mode=TwoWay}" ItemSelected="GenreSelected"
+                  HorizontalOptions="Center"
+                  VerticalOptions="CenterAndExpand"/>
     </StackLayout>
 
 </ContentPage>

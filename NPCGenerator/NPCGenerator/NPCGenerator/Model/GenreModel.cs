@@ -31,5 +31,10 @@ namespace NPCGenerator.Model
         }
 
         public ObservableCollection<PropertyModel> UsedProperties { get; set; }
+
+        public override string ToString()
+        {
+            return this._GenreName;
+        }
     }
 }
