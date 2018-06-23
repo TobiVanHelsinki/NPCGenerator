@@ -6,24 +6,17 @@
              x:Name="page"
              >
     <ContentPage.Resources>
-        <ControlTemplate x:Key="GenreTemplate" >
-            <Grid>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="*"/>
-                </Grid.RowDefinitions>
-                <Label Text="{Binding GenreName}" />
-                <ListView BackgroundColor="Red" Grid.Row="1" ItemsSource="{Binding UsedProperties, Mode=TwoWay}"/>
-            </Grid>
-        </ControlTemplate>
         <DataTemplate x:Key="PropTemplate" >
             <ViewCell>
-                <Grid BackgroundColor="Orange">
+                <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="Auto"/>
                         <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto"/>
                     </Grid.ColumnDefinitions>
-                    <Label Text="{Binding Name, Mode=OneWay}" />
+                    <Label Grid.Column="0" Text="{Binding PropertyName, Mode=OneWay}" />
+                    <Label Grid.Column="1" Text="{Binding Typ, Mode=OneWay}" />
+                    <Label Grid.Column="2" Text="{Binding Content, Mode=OneWay}" />
                 </Grid>
             </ViewCell>
         </DataTemplate>
@@ -40,9 +33,6 @@
                 <Label Text="{Binding GenreName, Mode=OneWay}"/>
                 <ListView ItemsSource="{Binding UsedProperties, Mode=TwoWay}" ItemTemplate="{StaticResource PropTemplate}"/>
             </StackLayout>
-            <!--<ContentView x:Name="Contentview" BackgroundColor="Red"
-                         ControlTemplate="{StaticResource GenreTemplate}"/>-->
-
             <Button Grid.Row="3" x:Name="TestBtn" Text="Change Model" Clicked="Button_Clicked"/>
         </Grid>
     </ContentPage.Content>
