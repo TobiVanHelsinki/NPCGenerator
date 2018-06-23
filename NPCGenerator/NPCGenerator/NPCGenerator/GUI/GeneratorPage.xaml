@@ -1,30 +1,49 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="NPCGenerator.GUI.GeneratorPage">
+             xmlns:local="clr-namespace:NPCGenerator.Model"
+             x:Class="NPCGenerator.GUI.GeneratorPage"
+             x:Name="page"
+             >
     <ContentPage.Resources>
-        <DataTemplate x:Key="GenreTemplate">
+        <ControlTemplate x:Key="GenreTemplate" >
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
-                <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-                <ListView BackgroundColor="Red" ItemsSource="{Binding TestList, Mode=TwoWay}"/>
-
+                <Label Text="{Binding GenreName}" />
+                <ListView BackgroundColor="Red" Grid.Row="1" ItemsSource="{Binding UsedProperties, Mode=TwoWay}"/>
             </Grid>
+        </ControlTemplate>
+        <DataTemplate x:Key="PropTemplate" >
+            <ViewCell>
+                <Grid BackgroundColor="Orange">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <Label Text="{Binding Name, Mode=OneWay}" />
+                </Grid>
+            </ViewCell>
         </DataTemplate>
     </ContentPage.Resources>
     <ContentPage.Content>
-        
-        <StackLayout>
-            <ContentView BindingContext="{x:Binding AppModel.CurrentGenre, Mode=OneWay}" ControlTemplate="{StaticResource GenreTemplate}"/>
-            <!--<ListView BackgroundColor="Red" ItemsSource="{Binding TestList, Mode=TwoWay}"/>-->
-            <!--<Label Text="{x:Binding AppModel.Genres}"/>-->
-            
-            <Button Text="Genre ändern" Clicked="Button_Clicked"/>
-        </StackLayout>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <StackLayout x:Name="CurrentGenrePanel">
+                <Label Text="{Binding GenreName, Mode=OneWay}"/>
+                <ListView ItemsSource="{Binding UsedProperties, Mode=TwoWay}" ItemTemplate="{StaticResource PropTemplate}"/>
+            </StackLayout>
+            <!--<ContentView x:Name="Contentview" BackgroundColor="Red"
+                         ControlTemplate="{StaticResource GenreTemplate}"/>-->
+
+            <Button Grid.Row="3" x:Name="TestBtn" Text="Change Model" Clicked="Button_Clicked"/>
+        </Grid>
     </ContentPage.Content>
 </ContentPage>

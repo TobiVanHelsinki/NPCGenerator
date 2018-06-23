@@ -1,26 +1,21 @@
-﻿using NPCGenerator.GUI;
-using NPCGenerator.Model;
+﻿using NPCGenerator.Model;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Xamarin.Forms;
 
 namespace NPCGenerator.GUI
 {
 	public partial class MainPage : ContentPage
 	{
-        AppModel AppModel => AppModel.Instance;
-		public MainPage()
+        public MainPage()
 		{
-			InitializeComponent();
+            InitializeComponent();
+            BindingContext = AppModel.Instance;
         }
 
-        async void Button_Clicked(object sender, EventArgs e)
+        async void GenreSelected(object sender, EventArgs e)
         {
+            AppModel.Instance.CurrentGenre = (e as SelectedItemChangedEventArgs).SelectedItem as GenreModel;
             await Navigation.PushAsync(new GeneratorPage());
-
         }
     }
 }
