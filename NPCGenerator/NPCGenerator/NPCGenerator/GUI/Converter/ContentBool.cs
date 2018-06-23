@@ -20,7 +20,11 @@ namespace NPCGenerator.GUI.Converter
         }
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo language)
         {
-            return value.ToString() ?? "-";
+            if (value is bool)
+            {
+                return value;
+            }
+            return false;
         }
         #endregion
     }
