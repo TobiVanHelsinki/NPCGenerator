@@ -39,5 +39,10 @@ namespace NPCGenerator.GUI
             InitializeComponent ();
             BindingContext = this;
         }
-	}
+
+        private void Button_Clicked(object sender, EventArgs e)
+        {
+            AppModel.Instance.CurrentGenre = AppModel.Instance.Genres[1];
+        }
+    }
 }
