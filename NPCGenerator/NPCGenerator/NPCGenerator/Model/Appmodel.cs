@@ -43,12 +43,6 @@ namespace NPCGenerator.Model
         public ObservableCollection<GenreModel> Genres { get; set; }
         public ObservableCollection<PropertyModel> AllProperties { get; set; }
 
-        string _Test = "hallo";
-        public string Test
-        {
-            get { return _Test; }
-            set { if (_Test != value) { _Test = value; NotifyPropertyChanged(); } }
-        }
 
     }
 }

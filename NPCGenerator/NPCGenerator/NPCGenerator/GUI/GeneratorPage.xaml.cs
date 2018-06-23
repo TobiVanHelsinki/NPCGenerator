@@ -31,9 +31,19 @@ namespace NPCGenerator.GUI
             }
         }
 
-        private void Button_Clicked(object sender, EventArgs e)
+        private void Reset_Clicked(object sender, EventArgs e)
         {
-            AppModel.Instance.CurrentGenre = AppModel.Instance.Genres[1];
+
+        }
+
+        private void Generate_Clicked(object sender, EventArgs e)
+        {
+            Services.GenerateChar.RandomTraits();
+        }
+
+        private void Impressum_Clicked(object sender, EventArgs e)
+        {
+
         }
     }
 }

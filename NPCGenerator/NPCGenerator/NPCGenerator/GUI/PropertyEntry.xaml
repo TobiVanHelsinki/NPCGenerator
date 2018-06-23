@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:conv="clr-namespace:NPCGenerator.GUI.Converter"
+             x:Class="NPCGenerator.GUI.PropertyEntry">
+    <ContentView.Resources>
+        <conv:ContentBool x:Key="ContentBool"/>
+        <ControlTemplate x:Key="String">
+            <Entry BindingContext="{TemplateBinding BindingContext}" Text="{Binding Content, Mode=TwoWay}"/>
+        </ControlTemplate>
+        <ControlTemplate x:Key="Number">
+            <Entry BindingContext="{TemplateBinding BindingContext}" Text="{Binding Content, Mode=TwoWay}"/>
+        </ControlTemplate>
+        <ControlTemplate x:Key="Color">
+            <Label Text="Color"/>
+        </ControlTemplate>
+        <ControlTemplate x:Key="Boolean">
+            <Switch BindingContext="{TemplateBinding BindingContext}" IsToggled="{Binding Content, Mode=TwoWay, Converter={StaticResource ContentBool}}}"/>
+        </ControlTemplate>
+        <ControlTemplate x:Key="Date">
+            <Label Text="Date"/>
+        </ControlTemplate>
+    </ContentView.Resources>
+    <ContentView.Content>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Label Grid.Column="0" Text="{Binding PropertyName, Mode=OneWay}" FontSize="Medium"/>
+            <Label Grid.Column="1" Text="{Binding Typ, Mode=OneWay}" FontSize="Medium"/>
+            <Label Grid.Column="2" Text="{Binding Content, Mode=OneWay}" FontSize="Medium"/>
+            <ContentView Grid.Column="3" x:Name="ContentCTRL"/>
+        </Grid>
+    </ContentView.Content>
+</ContentView>

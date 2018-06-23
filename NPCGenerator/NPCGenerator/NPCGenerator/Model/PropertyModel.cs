@@ -9,8 +9,18 @@ namespace NPCGenerator.Model
     class PropertyModel: INotifyPropertyChanged
 	{
 
-        public PropertyTypes Typ { get; set; }
-        public object Content { get; set; }
+        PropertyTypes _Typ;
+        public PropertyTypes Typ
+        {
+            get { return _Typ; }
+            set { if (_Typ != value) { _Typ = value; NotifyPropertyChanged(); } }
+        }
+        object _Content;
+        public object Content
+        {
+            get { return _Content; }
+            set { if (_Content != value) { _Content = value; NotifyPropertyChanged(); } }
+        }
 
         string _PropertyName;
         public string PropertyName
@@ -25,5 +35,6 @@ namespace NPCGenerator.Model
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
         #endregion
+
     }
 }
