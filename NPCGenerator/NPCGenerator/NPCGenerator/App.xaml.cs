@@ -1,5 +1,6 @@
 using NPCGenerator.GUI;
 using NPCGenerator.Model;
+using NPCGenerator.Services;
 using System;
 using System.Linq;
 using Xamarin.Forms;
@@ -24,11 +25,16 @@ namespace NPCGenerator
             AppModel.Instance.Genres.Add(new GenreModel() {GenreName = "Modern" });
             AppModel.Instance.Genres.Add(new GenreModel() {GenreName = "More" });
 
-            AppModel.Instance.AllProperties.Add(new PropertyModel() { PropertyName = "Name" });
-            AppModel.Instance.AllProperties.Add(new PropertyModel() { PropertyName = "Race" });
-            AppModel.Instance.AllProperties.Add(new PropertyModel() { PropertyName = "Sex" });
-            AppModel.Instance.AllProperties.Add(new PropertyModel() { PropertyName = "Age" });
-            AppModel.Instance.AllProperties.Add(new PropertyModel() { PropertyName = "Moral" });
+            AppModel.Instance.AllProperties.Add(new PropertyModel() { PropertyName = "Name", Typ = PropertyTypes.String });
+            AppModel.Instance.AllProperties.Add(new PropertyModel() { PropertyName = "Race", Typ = PropertyTypes.String });
+            AppModel.Instance.AllProperties.Add(new PropertyModel() { PropertyName = "Sex", Typ = PropertyTypes.String });
+            AppModel.Instance.AllProperties.Add(new PropertyModel() { PropertyName = "Age", Typ = PropertyTypes.Int });
+            AppModel.Instance.AllProperties.Add(new PropertyModel() { PropertyName = "Job", Typ = PropertyTypes.String });
+            AppModel.Instance.AllProperties.Add(new PropertyModel() { PropertyName = "Abiliy", Typ = PropertyTypes.String, Content = "Hunting" });
+            AppModel.Instance.AllProperties.Add(new PropertyModel() { PropertyName = "Abiliy", Typ = PropertyTypes.String, Content = "Singing" });
+            AppModel.Instance.AllProperties.Add(new PropertyModel() { PropertyName = "Abiliy", Typ = PropertyTypes.String, Content = "Dancing" });
+            AppModel.Instance.AllProperties.Add(new PropertyModel() { PropertyName = "Abiliy", Typ = PropertyTypes.String, Content = "Reading" });
+            AppModel.Instance.AllProperties.Add(new PropertyModel() { PropertyName = "Special_Placeholder", Typ = PropertyTypes.Boolean, Content = "false" });
 
             AppModel.Instance.Genres[0].UsedProperties.Add(AppModel.Instance.AllProperties[0]);
             AppModel.Instance.Genres[0].UsedProperties.Add(AppModel.Instance.AllProperties[1]);
@@ -38,7 +44,10 @@ namespace NPCGenerator
 
             AppModel.Instance.Genres[2].UsedProperties.Add(AppModel.Instance.AllProperties[4]);
 
+            Services.GenerateChar.RandomTraits();
+
             AppModel.Instance.CurrentGenre = AppModel.Instance.Genres[0];
+
         }
 
         protected override void OnStart ()
