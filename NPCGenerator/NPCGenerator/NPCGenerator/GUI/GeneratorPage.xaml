@@ -14,7 +14,7 @@
         </DataTemplate>
         <Style TargetType="Label" x:Key="Headline">
             <Setter Property="FontAttributes" Value="Bold"/>
-            <Setter Property="FontSize" Value="Medium"/>
+            <Setter Property="FontSize" Value="Default"/>
         </Style>
     </ContentPage.Resources>
     <ContentPage.Content>
@@ -33,7 +33,7 @@
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="Auto"/>
                         <ColumnDefinition Width="Auto"/>
-                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
                         <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
                     <Label Grid.Column="0" Text="Identifier" Style="{StaticResource Headline}"/>
