@@ -20,7 +20,8 @@ namespace NPCGenerator.Model
             }
         }
         public GenreModel CurrentGenre { get; set; }
-        public ObservableCollection<GenreModel> Genres { get; set; }
-        public ObservableCollection<PropertyModel> AllProperties { get; set; }
+        public ObservableCollection<GenreModel> Genres { get; set; } = new ObservableCollection<GenreModel>();
+        public ObservableCollection<PropertyModel> AllProperties { get; set; } = new ObservableCollection<PropertyModel>();
+
     }
 }
