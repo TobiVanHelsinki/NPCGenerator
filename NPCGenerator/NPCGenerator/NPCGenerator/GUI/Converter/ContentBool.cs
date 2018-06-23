@@ -12,11 +12,19 @@ namespace NPCGenerator.GUI.Converter
         #region IValueConverter Members 
         public object Convert(object value, Type targetType, object parameter, CultureInfo language)
         {
-            return (bool)value;
+            if (value is bool)
+            {
+                return (bool)value;
+            }
+            return false;
         }
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo language)
         {
-            return value.ToString() ?? "-";
+            if (value is bool)
+            {
+                return value;
+            }
+            return false;
         }
         #endregion
     }
