@@ -12,14 +12,15 @@
             <Entry BindingContext="{TemplateBinding BindingContext}" Text="{Binding Content, Mode=TwoWay}"/>
         </ControlTemplate>
         <ControlTemplate x:Key="Color">
-            <Label Text="Color"/>
+            <Entry BindingContext="{TemplateBinding BindingContext}" Text="{Binding Content, Mode=TwoWay}"/>
         </ControlTemplate>
         <ControlTemplate x:Key="Boolean">
-            <Switch BindingContext="{TemplateBinding BindingContext}" IsToggled="{Binding Content, Mode=TwoWay, Converter={StaticResource ContentBool}}}"/>
+            <Switch BindingContext="{TemplateBinding BindingContext}" IsToggled="{Binding Content, Mode=TwoWay}"/>
         </ControlTemplate>
         <ControlTemplate x:Key="Date">
-            <Label Text="Date"/>
+            <DatePicker BindingContext="{TemplateBinding BindingContext}" Date="{Binding Content, Mode=TwoWay}"/>
         </ControlTemplate>
+
     </ContentView.Resources>
     <ContentView.Content>
         <Grid>
@@ -33,6 +34,7 @@
             <Label Grid.Column="1" Text="{Binding Typ, Mode=OneWay}" FontSize="Medium"/>
             <Label Grid.Column="2" Text="{Binding Content, Mode=OneWay}" FontSize="Medium"/>
             <ContentView Grid.Column="3" x:Name="ContentCTRL"/>
+
         </Grid>
     </ContentView.Content>
 </ContentView>
