@@ -25,5 +25,6 @@ namespace NPCGenerator.Model
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
         #endregion
+
     }
 }
