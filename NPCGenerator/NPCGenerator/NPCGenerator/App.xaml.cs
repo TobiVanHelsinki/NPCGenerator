@@ -29,6 +29,15 @@ namespace NPCGenerator
             AppModel.Instance.AllProperties.Add(new PropertyModel() { PropertyName = "Sex" });
             AppModel.Instance.AllProperties.Add(new PropertyModel() { PropertyName = "Age" });
             AppModel.Instance.AllProperties.Add(new PropertyModel() { PropertyName = "Moral" });
+
+            AppModel.Instance.Genres[0].UsedProperties.Add(AppModel.Instance.AllProperties[0]);
+            AppModel.Instance.Genres[0].UsedProperties.Add(AppModel.Instance.AllProperties[1]);
+
+            AppModel.Instance.Genres[1].UsedProperties.Add(AppModel.Instance.AllProperties[2]);
+            AppModel.Instance.Genres[1].UsedProperties.Add(AppModel.Instance.AllProperties[3]);
+
+            AppModel.Instance.Genres[2].UsedProperties.Add(AppModel.Instance.AllProperties[4]);
+            AppModel.Instance.Genres[2].UsedProperties.Add(AppModel.Instance.AllProperties[5]);
         }
 
         protected override void OnStart ()
