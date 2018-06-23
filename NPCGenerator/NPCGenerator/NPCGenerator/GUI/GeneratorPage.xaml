@@ -2,22 +2,14 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:NPCGenerator.Model"
+             xmlns:gui="clr-namespace:NPCGenerator.GUI"
              x:Class="NPCGenerator.GUI.GeneratorPage"
              x:Name="page"
              >
     <ContentPage.Resources>
         <DataTemplate x:Key="PropTemplate" >
             <ViewCell>
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="Auto"/>
-                        <ColumnDefinition Width="Auto"/>
-                        <ColumnDefinition Width="*"/>
-                    </Grid.ColumnDefinitions>
-                    <Label Grid.Column="0" Text="{Binding PropertyName, Mode=OneWay}" FontSize="Medium"/>
-                    <!--<Label Grid.Column="1" Text="{Binding Typ, Mode=OneWay}" FontSize="Medium"/>-->
-                    <Label Grid.Column="2" Text="{Binding Content, Mode=OneWay}" FontSize="Medium"/>
-                </Grid>
+                <gui:PropertyEntry/>
             </ViewCell>
         </DataTemplate>
     </ContentPage.Resources>
