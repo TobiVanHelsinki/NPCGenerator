@@ -4,10 +4,23 @@
              xmlns:local="clr-namespace:NPCGenerator"
              x:Class="NPCGenerator.GUI.MainPage">
 
-    <StackLayout>
-        <ListView ItemsSource="{Binding Genres, Mode=TwoWay}" ItemSelected="GenreSelected"
-                  HorizontalOptions="Center"
-                  VerticalOptions="CenterAndExpand"/>
-    </StackLayout>
+    <ContentPage.Content>
+        <ListView ItemsSource="{Binding Genres, Mode=TwoWay}" ItemSelected="GenreSelected">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout VerticalOptions="CenterAndExpand"
+                        Orientation="Vertical">
+                            <StackLayout Orientation="Horizontal">
+                                <Image Source="{Binding ImagePath}" />
+                                <Label Text="{Binding GenreName}"
+                                    TextColor="#f35e20" />
+                            </StackLayout>
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </ContentPage.Content>
 
 </ContentPage>

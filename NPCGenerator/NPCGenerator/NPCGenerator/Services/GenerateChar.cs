@@ -20,6 +20,7 @@ namespace NPCGenerator.Services
             RandomName();
             RandomAge();
             RandomJob();
+            RandomAbilitiesSmall();
             //RandomAbilities();
             RandomEyes();
             RandomHair();
@@ -164,6 +165,14 @@ namespace NPCGenerator.Services
             ContentUpdate = ContentUpdate + " " +Model.DataModel.HairstyleList[Zahl];
 
             AppModel.Instance.AllProperties[7].Content = ContentUpdate;
+        }
+
+        public static void RandomAbilitiesSmall()
+        {
+            Random RandomNumber = new Random();
+            int Zahl = RandomNumber.Next(0, Model.DataModel.AbilityHobby.Count);
+
+            AppModel.Instance.AllProperties[5].Content = DataModel.AbilityHobby[Zahl];
         }
 
     }
