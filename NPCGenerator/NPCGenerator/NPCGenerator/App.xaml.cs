@@ -37,7 +37,6 @@ namespace NPCGenerator
             AppModel.Instance.Genres[1].UsedProperties.Add(AppModel.Instance.AllProperties[3]);
 
             AppModel.Instance.Genres[2].UsedProperties.Add(AppModel.Instance.AllProperties[4]);
-            AppModel.Instance.Genres[2].UsedProperties.Add(AppModel.Instance.AllProperties[5]);
         }
 
         protected override void OnStart ()
