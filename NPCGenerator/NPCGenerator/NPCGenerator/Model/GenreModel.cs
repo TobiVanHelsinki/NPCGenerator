@@ -7,8 +7,7 @@ using System.Runtime.CompilerServices;
 
 namespace NPCGenerator.Model
 {
-    class GenreModel
-        : INotifyPropertyChanged
+    class GenreModel : INotifyPropertyChanged
 	{
         #region NotifyPropertyChanged
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -18,6 +17,13 @@ namespace NPCGenerator.Model
         }
         #endregion
         String _GenreName;
+
+        public GenreModel(string Name = "Default")
+        {
+            GenreName = Name;
+            UsedProperties = new ObservableCollection<PropertyModel>();
+        }
+
         public String GenreName
         {
             get { return _GenreName; }
