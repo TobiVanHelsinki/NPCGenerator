@@ -13,8 +13,7 @@
                         Orientation="Vertical">
                             <StackLayout Orientation="Horizontal">
                                 <Image Source="{Binding ImagePath}" />
-                                <Label Text="{Binding GenreName}"
-                                    TextColor="#f35e20" />
+                                <Label Text="{Binding GenreName}" FontSize="Large" />
                             </StackLayout>
                         </StackLayout>
                     </ViewCell>
