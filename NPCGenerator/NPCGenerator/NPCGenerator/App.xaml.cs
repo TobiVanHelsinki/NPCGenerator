@@ -37,6 +37,8 @@ namespace NPCGenerator
             AppModel.Instance.Genres[1].UsedProperties.Add(AppModel.Instance.AllProperties[3]);
 
             AppModel.Instance.Genres[2].UsedProperties.Add(AppModel.Instance.AllProperties[4]);
+
+            AppModel.Instance.CurrentGenre = AppModel.Instance.Genres[0];
         }
 
         protected override void OnStart ()

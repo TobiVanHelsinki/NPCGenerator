@@ -1,43 +1,34 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿using NPCGenerator.Model;
+using System;
+using System.ComponentModel;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-using System.ComponentModel;
-using System.Runtime.CompilerServices;
-using NPCGenerator.Model;
 
 namespace NPCGenerator.GUI
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class GeneratorPage : ContentPage, INotifyPropertyChanged
 	{
-        #region NotifyPropertyChanged
-		public event PropertyChangedEventHandler PropertyChanged;
-        protected void NotifyPropertyChanged([CallerMemberName] string propertyName = "")
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
-        #endregion
         AppModel AppModel => AppModel.Instance;
-
-
-        List<string> _TestList;
-        public List<string> TestList
-        {
-            get { return _TestList; }
-            set { if (_TestList != value) { _TestList = value; NotifyPropertyChanged(); } }
-        }
 
 		public GeneratorPage ()
 		{
-            TestList = new List<string>() { "hallo", "Tobi" };
             InitializeComponent ();
-            BindingContext = this;
+
+            CurrentGenrePanel.BindingContext = AppModel.CurrentGenre;
+            AppModel.PropertyChanged += AppModel_PropertyChanged;
+        }
+
+        private void AppModel_PropertyChanged(object sender, PropertyChangedEventArgs e)
+        {
+            switch (e.PropertyName)
+            {
+                case nameof(AppModel.CurrentGenre):
+                    CurrentGenrePanel.BindingContext = AppModel.CurrentGenre;
+                    break;
+                default:
+                    break;
+            }
         }
 
         private void Button_Clicked(object sender, EventArgs e)
