@@ -33,7 +33,7 @@ namespace NPCGenerator
             AppModel.Instance.AllProperties.Add(new PropertyModel() { PropertyName = "Abilities", Typ = PropertyTypes.String, Content = "NDY" });
             AppModel.Instance.AllProperties.Add(new PropertyModel() { PropertyName = "Eyes", Typ = PropertyTypes.String });
             AppModel.Instance.AllProperties.Add(new PropertyModel() { PropertyName = "Hair", Typ = PropertyTypes.String });
-            AppModel.Instance.AllProperties.Add(new PropertyModel() { PropertyName = "Special_Placeholder", Typ = PropertyTypes.Boolean, Content = "false" });
+            AppModel.Instance.AllProperties.Add(new PropertyModel() { PropertyName = "Special_Placeholder", Typ = PropertyTypes.Boolean, Content = false });
 
 
             for (int i = 0; i < AppModel.Instance.AllProperties.Count; i++)
