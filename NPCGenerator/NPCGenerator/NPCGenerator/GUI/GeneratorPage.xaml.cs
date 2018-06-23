@@ -23,8 +23,9 @@ namespace NPCGenerator.GUI
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
         #endregion
+        AppModel AppModel => AppModel.Instance;
 
-     
+
         List<string> _TestList;
         public List<string> TestList
         {

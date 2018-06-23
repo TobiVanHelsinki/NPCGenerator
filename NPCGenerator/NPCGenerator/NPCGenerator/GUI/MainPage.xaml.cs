@@ -1,4 +1,5 @@
 ﻿using NPCGenerator.GUI;
+using NPCGenerator.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,6 +11,7 @@ namespace NPCGenerator.GUI
 {
 	public partial class MainPage : ContentPage
 	{
+        AppModel AppModel => AppModel.Instance;
 		public MainPage()
 		{
 			InitializeComponent();
