@@ -26,15 +26,13 @@
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"/>
-                <ColumnDefinition Width="Auto"/>
-                <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
             </Grid.ColumnDefinitions>
             <Label Grid.Column="0" Text="{Binding PropertyName, Mode=OneWay}" FontSize="Medium"/>
-            <Label Grid.Column="1" Text="{Binding Typ, Mode=OneWay}" FontSize="Medium"/>
-            <Label Grid.Column="2" Text="{Binding Content, Mode=OneWay}" FontSize="Medium"/>
-            <ContentView Grid.Column="3" x:Name="ContentCTRL" Margin="50,0,0,0"/>
-
+            <ContentView Grid.Column="2" x:Name="ContentCTRL" Margin="50,0,0,0"/>
+            <Switch Grid.Column="3" IsToggled="{Binding IsUserFixed, Mode=TwoWay}"/>
         </Grid>
     </ContentView.Content>
 </ContentView>

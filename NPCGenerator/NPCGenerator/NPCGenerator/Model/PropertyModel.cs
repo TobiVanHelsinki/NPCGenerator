@@ -28,8 +28,15 @@ namespace NPCGenerator.Model
             get { return _PropertyName; }
             set { if (_PropertyName != value) { _PropertyName = value; NotifyPropertyChanged(); } }
         }
+        bool _IsUserFixed;
+        public bool IsUserFixed
+        {
+            get { return _IsUserFixed; }
+            set { if (_IsUserFixed != value) { _IsUserFixed = value; NotifyPropertyChanged(); } }
+        }
+
         #region NotifyPropertyChanged
-		public event PropertyChangedEventHandler PropertyChanged;
+        public event PropertyChangedEventHandler PropertyChanged;
         protected void NotifyPropertyChanged([CallerMemberName] string propertyName = "")
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
