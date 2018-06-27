@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using TLIB;
@@ -47,6 +48,10 @@ namespace NPCGenerator.Model
                 }
                 else
                 {
+                    if (Debugger.IsAttached)
+                    {
+                        Debugger.Break();
+                    }
                     HasChanged = true;
                 }
                 if (HasChanged)
@@ -57,11 +62,6 @@ namespace NPCGenerator.Model
                     NotifyPropertyChanged(nameof(Content));
                 }
             }
-        }
-
-        internal void Reset()
-        {
-            Content = PropertyTypeHelper.InitContent(Typ);
         }
 
         public object Content
@@ -78,6 +78,7 @@ namespace NPCGenerator.Model
             get { return _PropertyName; }
             set { if (_PropertyName != value) { _PropertyName = value; NotifyPropertyChanged(); } }
         }
+
         bool _IsUserFixed;
         public bool IsUserFixed
         {
@@ -108,8 +109,21 @@ namespace NPCGenerator.Model
             }
             catch (Exception ex)
             {
+                if (Debugger.IsAttached)
+                {
+                    Debugger.Break();
+                }
                 Content = PropertyTypeHelper.InitContent(Typ);
             }
+        }
+
+        public void Reset()
+        {
+            if (IsUserFixed)
+            {
+                return;
+            }
+            Content = PropertyTypeHelper.InitContent(Typ);
         }
 
         #region NotifyPropertyChanged
