@@ -201,22 +201,23 @@ namespace NPCGenerator.Data
 
         public static void CreateTestModel()
         {
-            Model.Genres.Add(new GenreModel() { GenreName = GenreFantasy, ImagePath = "fantasy.jpg" });
-            Model.Genres.Add(new GenreModel() { GenreName = GenreShadowRun, ImagePath = "shadowrun.png" });
-            Model.Genres.Add(new GenreModel() { GenreName = GenreModern, ImagePath = "modern.jpg" });
-            Model.Genres.Add(new GenreModel() { GenreName = "More", ImagePath = "more.jpg" });
+            Model.Genres.Add(new GenreModel(GenreFantasy, "fantasy.jpg") { StartDate = new DateTime(1500, 1, 1) });
+            Model.Genres.Add(new GenreModel(GenreShadowRun, "shadowrun.png") { StartDate = new DateTime(1977, 1, 1) });
+            Model.Genres.Add(new GenreModel(GenreModern, "modern.jpg"));
+            Model.Genres.Add(new GenreModel("More", "more.jpg"));
 
-            Props.Add(new PropertyModel() { PropertyName = Sex, Typ = PropertyTypes.String, PossibleContents = SexList });
-            Props.Add(new PropertyModel() { PropertyName = Race, Typ = PropertyTypes.String, PossibleContents = RaceList });
-            Props.Add(new PropertyModel() { PropertyName = Job, Typ = PropertyTypes.String, PossibleContents = JobList });
-            Props.Add(new PropertyModel() { PropertyName = Name, Typ = PropertyTypes.String, PossibleContents = NameList });
-            Props.Add(new PropertyModel() { PropertyName = Age, Typ = PropertyTypes.Int, PossibleContents = AgeList });
-            Props.Add(new PropertyModel() { PropertyName = Ability, Typ = PropertyTypes.String, PossibleContents = AbilityList, Content = "NDY" });
-            Props.Add(new PropertyModel() { PropertyName = Eye, Typ = PropertyTypes.String, PossibleContents = EyeList });
-            Props.Add(new PropertyModel() { PropertyName = HairColor, Typ = PropertyTypes.String, PossibleContents = HairColorList });
-            Props.Add(new PropertyModel() { PropertyName = HairStyle, Typ = PropertyTypes.String, PossibleContents = HairStyleList });
-            Props.Add(new PropertyModel() { PropertyName = Birthdate, Typ = PropertyTypes.Date, PossibleContents = DateList });
-            //Props.Add(new PropertyModel() { PropertyName = Special_Placeholder, Typ = PropertyTypes.Boolean, Content = false });
+            //Ordering neccesary for functional dependencies
+            Props.Add(new PropertyModel(Sex, PropertyTypes.String, SexList));
+            Props.Add(new PropertyModel(Race, PropertyTypes.String, RaceList));
+            Props.Add(new PropertyModel(Name, PropertyTypes.String, NameList));
+            Props.Add(new PropertyModel(Job, PropertyTypes.String, JobList));
+            Props.Add(new PropertyModel(Age, PropertyTypes.Int, new DynamicAgeCollection(100)));
+            Props.Add(new PropertyModel(Ability, PropertyTypes.String, AbilityList) { Content = "NDY" });
+            Props.Add(new PropertyModel(Eye, PropertyTypes.String, EyeList));
+            Props.Add(new PropertyModel(HairColor, PropertyTypes.String, HairColorList));
+            Props.Add(new PropertyModel(HairStyle, PropertyTypes.String, HairStyleList));
+            Props.Add(new PropertyModel(Birthdate, PropertyTypes.Date, new DynamicDateCollection()));
+            //Props.Add(new PropertyModel(Special_Placeholder,  PropertyTypes.Boolean, Content = false );
 
             //Use All properties at all Genres
             for (int i = 0; i < Props.Count; i++)

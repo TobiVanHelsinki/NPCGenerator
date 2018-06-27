@@ -49,7 +49,14 @@ namespace NPCGenerator.Model
                 {
                     HasChanged = true;
                 }
-                if (HasChanged) { IsUserFixed = true; _Content = value; NotifyPropertyChanged(); NotifyPropertyChanged(nameof(Content)); } }
+                if (HasChanged)
+                {
+                    IsUserFixed = true;
+                    _Content = value;
+                    NotifyPropertyChanged();
+                    NotifyPropertyChanged(nameof(Content));
+                }
+            }
         }
 
         internal void Reset()
@@ -60,8 +67,9 @@ namespace NPCGenerator.Model
         public object Content
         {
             get { return _Content; }
-            set { if (_Content != value) { _Content = value; NotifyPropertyChanged();
-                    NotifyPropertyChanged(nameof(Content_Man)); } }
+            set {
+                if (_Content != value)
+                { _Content = value; NotifyPropertyChanged(); NotifyPropertyChanged(nameof(Content_Man)); } }
         }
 
         string _PropertyName;
@@ -79,6 +87,13 @@ namespace NPCGenerator.Model
 
         public IEnumerable<PossiblePropertyContent> PossibleContents = new List<PossiblePropertyContent>();
 
+        public PropertyModel(string propertyName, PropertyTypes typ, IEnumerable<PossiblePropertyContent> possibleContents)
+        {
+            Typ = typ;
+            PropertyName = propertyName;
+            PossibleContents = possibleContents;
+        }
+
         public void SelectNewContent()
         {
             if (IsUserFixed)
@@ -87,9 +102,11 @@ namespace NPCGenerator.Model
             }
             try
             {
-                Content = PossibleContents.Where(x => x.IsPossible() == true).RandomElement().Content;
+                var pos = PossibleContents.Where(x => x.IsPossible() == true);
+                Content = pos.RandomElement().Content;
+                var e = pos.Count();
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 Content = PropertyTypeHelper.InitContent(Typ);
             }

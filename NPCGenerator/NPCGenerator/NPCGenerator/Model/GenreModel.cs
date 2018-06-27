@@ -15,6 +15,12 @@ namespace NPCGenerator.Model
             get { return _GenreName; }
             set { if (_GenreName != value) { _GenreName = value; NotifyPropertyChanged(); } }
         }
+        DateTime _StartTime = DateTime.Now.Date;
+        public DateTime StartDate
+        {
+            get { return _StartTime; }
+            set { if (_StartTime != value) { _StartTime = value; NotifyPropertyChanged(); } }
+        }
 
         public string ImagePath { get; set; }
 
@@ -34,6 +40,8 @@ namespace NPCGenerator.Model
             ImagePath = Path;
             UsedProperties = new ObservableCollection<PropertyModel>();
         }
+
+        
 
         public override string ToString()
         {
