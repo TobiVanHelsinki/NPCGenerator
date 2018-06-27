@@ -121,6 +121,7 @@ namespace NPCGenerator.Model
         {
             if (IsUserFixed)
             {
+                IsUserFixed = false;
                 return;
             }
             Content = PropertyTypeHelper.InitContent(Typ);
