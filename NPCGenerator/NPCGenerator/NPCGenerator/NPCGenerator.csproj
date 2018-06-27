@@ -24,4 +24,6 @@
   <ItemGroup>
     <Folder Include="Images\" />
   </ItemGroup>
+
+  <Import Project="..\..\..\..\TLIB\TLIB\TLIB.projitems" Label="Shared" />
 </Project>

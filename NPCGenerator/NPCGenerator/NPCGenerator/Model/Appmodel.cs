@@ -4,6 +4,7 @@ using System.Collections.ObjectModel;
 using System.Text;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
+using System.Linq;
 
 namespace NPCGenerator.Model
 {
@@ -31,7 +32,7 @@ namespace NPCGenerator.Model
         private AppModel()
         {
             Genres = new ObservableCollection<GenreModel>();
-            AllProperties = new ObservableCollection<PropertyModel>();
+            AllProperties = new PropertyModels();
         }
         GenreModel _CurrentGenre;
         public GenreModel CurrentGenre
@@ -41,8 +42,15 @@ namespace NPCGenerator.Model
         }
 
         public ObservableCollection<GenreModel> Genres { get; set; }
-        public ObservableCollection<PropertyModel> AllProperties { get; set; }
+        public PropertyModels AllProperties { get; set; }
 
 
+    }
+    class PropertyModels : ObservableCollection<PropertyModel>
+    {
+        public PropertyModel this[string i]
+        {
+            get { return this.FirstOrDefault(x=>x.PropertyName == i); }
+        }
     }
 }

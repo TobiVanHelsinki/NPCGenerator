@@ -115,42 +115,42 @@ namespace NPCGenerator.Services
             }
         }
 
-        public static void RandomAbilities()
-        {
-            Random RandomNumber = new Random();
-            int AbilityCount = RandomNumber.Next(2, 5);
+        //public static void RandomAbilities()
+        //{
+        //    Random RandomNumber = new Random();
+        //    int AbilityCount = RandomNumber.Next(2, 5);
 
-            switch (AppModel.Instance.CurrentGenre.GenreName)
-            {
-                case "Fantasy":
-                    {
-                        if (AbilityCount <= 2)
-                        {
-                            for (int i = 0; i < AbilityCount; i++)
-                            {
-                                int Zahl = RandomNumber.Next(0,DataModel.AbilityJobFantasy.Count);
-                                AllProperties[5].Content += DataModel.AbilityJobFantasy[Zahl];
-                            }
-                        }
-                    }
-                    break;
-                case "Shandowrun":
-                    {
+        //    switch (AppModel.Instance.CurrentGenre.GenreName)
+        //    {
+        //        case "Fantasy":
+        //            {
+        //                if (AbilityCount <= 2)
+        //                {
+        //                    for (int i = 0; i < AbilityCount; i++)
+        //                    {
+        //                        int Zahl = RandomNumber.Next(0,DataModel.AbilityJobFantasy.Count);
+        //                        AllProperties[5].Content += DataModel.AbilityJobFantasy[Zahl];
+        //                    }
+        //                }
+        //            }
+        //            break;
+        //        case "Shandowrun":
+        //            {
 
-                    }
-                    break;
-                case "Modern":
-                    {
+        //            }
+        //            break;
+        //        case "Modern":
+        //            {
 
-                    }
-                    break;
-                default:
-                    {
+        //            }
+        //            break;
+        //        default:
+        //            {
 
-                    }
-                    break;
-            }
-        }
+        //            }
+        //            break;
+        //    }
+        //}
 
         public static void RandomEyes()
         {
@@ -166,7 +166,7 @@ namespace NPCGenerator.Services
             int Zahl = RandomNumber.Next(0, Model.DataModel.EyeList.Count);
             string ContentUpdate;
 
-            ContentUpdate = Model.DataModel.HairColourList[Zahl];
+            ContentUpdate = Model.DataModel.HairColourList[Zahl] as string;
 
             Zahl = RandomNumber.Next(0, Model.DataModel.EyeList.Count);
             ContentUpdate = ContentUpdate + " " +Model.DataModel.HairstyleList[Zahl];

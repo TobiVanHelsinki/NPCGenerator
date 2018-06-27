@@ -6,6 +6,7 @@ namespace NPCGenerator.Model
 {
     enum PropertyTypes
     {
+        NotSet,
         String,
         Int,
         Color,

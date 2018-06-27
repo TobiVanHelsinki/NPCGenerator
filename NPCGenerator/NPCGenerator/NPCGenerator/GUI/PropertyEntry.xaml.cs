@@ -43,5 +43,10 @@ namespace NPCGenerator.GUI
                     break;
             }
         }
+
+        private void Button_Clicked(object sender, EventArgs e)
+        {
+            ((sender as Element).BindingContext as PropertyModel).SelectNewContent();
+        }
     }
 }

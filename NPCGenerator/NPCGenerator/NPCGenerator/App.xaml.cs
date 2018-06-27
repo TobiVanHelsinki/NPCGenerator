@@ -25,11 +25,11 @@ namespace NPCGenerator
             AppModel.Instance.Genres.Add(new GenreModel() {GenreName = "Modern", ImagePath = "modern.jpg" });
             AppModel.Instance.Genres.Add(new GenreModel() {GenreName = "More", ImagePath = "more.jpg" });
 
-            AppModel.Instance.AllProperties.Add(new PropertyModel() { PropertyName = "Name", Typ = PropertyTypes.String });
+            AppModel.Instance.AllProperties.Add(new PropertyModel() { PropertyName = "Name", Typ = PropertyTypes.String, PossibleContents = DataModel.NameListNew });
             AppModel.Instance.AllProperties.Add(new PropertyModel() { PropertyName = "Race", Typ = PropertyTypes.String });
-            AppModel.Instance.AllProperties.Add(new PropertyModel() { PropertyName = "Sex", Typ = PropertyTypes.String });
-            AppModel.Instance.AllProperties.Add(new PropertyModel() { PropertyName = "Age", Typ = PropertyTypes.Int });
-            AppModel.Instance.AllProperties.Add(new PropertyModel() { PropertyName = "Job", Typ = PropertyTypes.String });
+            AppModel.Instance.AllProperties.Add(new PropertyModel() { PropertyName = "Sex", Typ = PropertyTypes.String, PossibleContents = DataModel.SexListNew });
+            AppModel.Instance.AllProperties.Add(new PropertyModel() { PropertyName = "Age", Typ = PropertyTypes.Int});
+            AppModel.Instance.AllProperties.Add(new PropertyModel() { PropertyName = "Job", Typ = PropertyTypes.String});
             AppModel.Instance.AllProperties.Add(new PropertyModel() { PropertyName = "Abilities", Typ = PropertyTypes.String, Content = "NDY" });
             AppModel.Instance.AllProperties.Add(new PropertyModel() { PropertyName = "Eyes", Typ = PropertyTypes.String });
             AppModel.Instance.AllProperties.Add(new PropertyModel() { PropertyName = "Hair", Typ = PropertyTypes.String });

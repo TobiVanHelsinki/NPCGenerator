@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Text;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
+using System.Linq;
+using TLIB;
 
 namespace NPCGenerator.Model
 {
@@ -17,7 +19,7 @@ namespace NPCGenerator.Model
         }
         
         object _Content;
-        public object Content_Man
+        public object Content_Man //TODO hier mal mit dynamic experimentieren
         {
             get { return _Content; }
             set {
@@ -64,6 +66,20 @@ namespace NPCGenerator.Model
         {
             get { return _IsUserFixed; }
             set { if (_IsUserFixed != value) { _IsUserFixed = value; NotifyPropertyChanged(); } }
+        }
+
+        public List<PossiblePropertyContent> PossibleContents = new List<PossiblePropertyContent>();
+
+        public void SelectNewContent()
+        {
+            try
+            {
+                Content = PossibleContents.Where(x => x.IsPossible() == true).RandomElement().Content;
+            }
+            catch (Exception)
+            {
+                Content = PropertyTypeHelper.InitContent(Typ);
+            }
         }
 
         #region NotifyPropertyChanged
