@@ -41,6 +41,10 @@ namespace NPCGenerator.Model
                 {
                     HasChanged |= (bool)_Content != (bool)value;
                 }
+                else if (value is DateTime && _Content is DateTime)
+                {
+                    HasChanged |= ((DateTime)_Content).Date != ((DateTime)value).Date;
+                }
                 else
                 {
                     HasChanged = true;
