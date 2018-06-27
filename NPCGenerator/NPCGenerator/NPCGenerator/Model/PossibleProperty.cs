@@ -1,15 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace NPCGenerator.Model
 {
     public class PossiblePropertyContent
     {
-        public PossiblePropertyContent(object content, Func<bool> isPossible)
+        public PossiblePropertyContent(object content, Func<bool> isPossible = null)
         {
             Content = content;
-            IsPossible = isPossible;
+            IsPossible = isPossible == null ? () => true : isPossible;
         }
 
         public object Content { get; set; }

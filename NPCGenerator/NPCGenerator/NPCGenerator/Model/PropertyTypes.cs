@@ -36,7 +36,6 @@ namespace NPCGenerator.Model
                     return false;
                 default:
                     return null;
-                    break;
             }
         }
     }

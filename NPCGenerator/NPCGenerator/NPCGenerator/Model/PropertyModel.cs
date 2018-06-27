@@ -1,9 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 using System.ComponentModel;
-using System.Runtime.CompilerServices;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using TLIB;
 
 namespace NPCGenerator.Model
@@ -48,6 +47,12 @@ namespace NPCGenerator.Model
                 }
                 if (HasChanged) { IsUserFixed = true; _Content = value; NotifyPropertyChanged(); NotifyPropertyChanged(nameof(Content)); } }
         }
+
+        internal void Reset()
+        {
+            Content = PropertyTypeHelper.InitContent(Typ);
+        }
+
         public object Content
         {
             get { return _Content; }
@@ -68,10 +73,14 @@ namespace NPCGenerator.Model
             set { if (_IsUserFixed != value) { _IsUserFixed = value; NotifyPropertyChanged(); } }
         }
 
-        public List<PossiblePropertyContent> PossibleContents = new List<PossiblePropertyContent>();
+        public IEnumerable<PossiblePropertyContent> PossibleContents = new List<PossiblePropertyContent>();
 
         public void SelectNewContent()
         {
+            if (IsUserFixed)
+            {
+                return;
+            }
             try
             {
                 Content = PossibleContents.Where(x => x.IsPossible() == true).RandomElement().Content;

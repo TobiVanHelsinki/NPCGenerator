@@ -33,12 +33,18 @@ namespace NPCGenerator.GUI
 
         private void Reset_Clicked(object sender, EventArgs e)
         {
-
+            foreach (var item in AppModel.Instance.AllProperties)
+            {
+                item.Reset();
+            }
         }
 
         private void Generate_Clicked(object sender, EventArgs e)
         {
-            Services.GenerateChar.RandomTraits();
+            foreach (var item in AppModel.Instance.AllProperties)
+            {
+                item.SelectNewContent();
+            }
         }
 
         private void Impressum_Clicked(object sender, EventArgs e)
