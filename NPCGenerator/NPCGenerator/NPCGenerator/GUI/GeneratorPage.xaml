@@ -30,14 +30,13 @@
                 </StackLayout>
                 <Grid HeightRequest="50">
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="150"/>
                         <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="Auto"/>
-                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="50"/>
                     </Grid.ColumnDefinitions>
                     <Label Grid.Column="0" Text="Identifier" Style="{StaticResource Headline}"/>
-                    <Label Grid.Column="2" Text="Value" Style="{StaticResource Headline}"/>
-                    <Label Grid.Column="3" Text="Fixed" Style="{StaticResource Headline}"/>
+                    <Label Grid.Column="1" Text="Value" Style="{StaticResource Headline}"/>
+                    <Label Grid.Column="2" Text="Fixed" Style="{StaticResource Headline}"/>
                 </Grid>
                 <ListView ItemsSource="{Binding UsedProperties, Mode=TwoWay}" ItemTemplate="{StaticResource PropTemplate}"/>
             </StackLayout>

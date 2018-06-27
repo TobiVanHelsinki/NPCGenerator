@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Text;
 using NPCGenerator.Model;
 
@@ -7,7 +8,7 @@ namespace NPCGenerator.Services
 {
     static class GenerateChar
     {
-
+        static ObservableCollection<PropertyModel> AllProperties => AppModel.Instance.AllProperties;
         public static void RandomTraits()
         {
             if (AppModel.Instance.CurrentGenre == null)
@@ -15,8 +16,14 @@ namespace NPCGenerator.Services
                 return;
             }
 
-            RandomSex();
-            RandomRace();
+            if (!AllProperties[2].IsUserFixed)
+            {
+                RandomSex();
+            }
+            if (!AllProperties[1].IsUserFixed)
+            {
+                RandomRace();
+            }
             RandomName();
             RandomAge();
             RandomJob();
@@ -31,7 +38,7 @@ namespace NPCGenerator.Services
             Random RandomNumber = new Random();
             int Zahl = RandomNumber.Next(0, Model.DataModel.SexList.Count);
 
-            AppModel.Instance.AllProperties[2].Content = Model.DataModel.SexList[Zahl];
+            AllProperties[2].Content = Model.DataModel.SexList[Zahl];
         }
 
         private static void RandomRace()
@@ -39,31 +46,31 @@ namespace NPCGenerator.Services
             Random RandomNumber = new Random();
             int Zahl = RandomNumber.Next(0, Model.DataModel.RaceList.Count);
 
-            AppModel.Instance.AllProperties[1].Content = Model.DataModel.RaceList[Zahl];
+            AllProperties[1].Content = Model.DataModel.RaceList[Zahl];
         }
 
         private static void RandomName()
         {
-            if(AppModel.Instance.AllProperties[2].Content.ToString() == "Male")
+            if(AllProperties[2].Content.ToString() == "Male")
             {
                 Random RandomNumber = new Random();
                 int Zahl = RandomNumber.Next(0, Model.DataModel.MaleNameList.Count);
 
-                AppModel.Instance.AllProperties[0].Content = Model.DataModel.MaleNameList[Zahl];
+                AllProperties[0].Content = Model.DataModel.MaleNameList[Zahl];
             }
-            else if(AppModel.Instance.AllProperties[2].Content.ToString() == "Female")
+            else if(AllProperties[2].Content.ToString() == "Female")
             {
                 Random RandomNumber = new Random();
                 int Zahl = RandomNumber.Next(0, Model.DataModel.FemaleNameList.Count);
 
-                AppModel.Instance.AllProperties[0].Content = Model.DataModel.FemaleNameList[Zahl];
+                AllProperties[0].Content = Model.DataModel.FemaleNameList[Zahl];
             }
             else
             {
                 Random RandomNumber = new Random();
                 int Zahl = RandomNumber.Next(0, Model.DataModel.ObjectNameList.Count);
 
-                AppModel.Instance.AllProperties[0].Content = Model.DataModel.ObjectNameList[Zahl];
+                AllProperties[0].Content = Model.DataModel.ObjectNameList[Zahl];
             }
 
         }
@@ -73,7 +80,7 @@ namespace NPCGenerator.Services
             Random RandomNumber = new Random();
             int Zahl = RandomNumber.Next(16, 120);
 
-            AppModel.Instance.AllProperties[3].Content = Zahl;
+            AllProperties[3].Content = Zahl;
         }
 
         public static void RandomJob()
@@ -83,28 +90,28 @@ namespace NPCGenerator.Services
                 Random RandomNumber = new Random();
                 int Zahl = RandomNumber.Next(0, Model.DataModel.JobFantasyList.Count);
 
-                AppModel.Instance.AllProperties[4].Content = Model.DataModel.JobFantasyList[Zahl];
+                AllProperties[4].Content = Model.DataModel.JobFantasyList[Zahl];
             }
             else if (AppModel.Instance.CurrentGenre == AppModel.Instance.Genres[1])
             {
                 Random RandomNumber = new Random();
                 int Zahl = RandomNumber.Next(0, Model.DataModel.JobShandowrunList.Count);
 
-                AppModel.Instance.AllProperties[4].Content = Model.DataModel.JobShandowrunList[Zahl];
+                AllProperties[4].Content = Model.DataModel.JobShandowrunList[Zahl];
             }
             else if (AppModel.Instance.CurrentGenre == AppModel.Instance.Genres[2])
             {
                 Random RandomNumber = new Random();
                 int Zahl = RandomNumber.Next(0, Model.DataModel.JobModernList.Count);
 
-                AppModel.Instance.AllProperties[4].Content = Model.DataModel.JobModernList[Zahl];
+                AllProperties[4].Content = Model.DataModel.JobModernList[Zahl];
             }
             else
             {
                 Random RandomNumber = new Random();
                 int Zahl = RandomNumber.Next(0, Model.DataModel.JobFallbackList.Count);
 
-                AppModel.Instance.AllProperties[4].Content = Model.DataModel.JobFallbackList[Zahl];
+                AllProperties[4].Content = Model.DataModel.JobFallbackList[Zahl];
             }
         }
 
@@ -122,7 +129,7 @@ namespace NPCGenerator.Services
                             for (int i = 0; i < AbilityCount; i++)
                             {
                                 int Zahl = RandomNumber.Next(0,DataModel.AbilityJobFantasy.Count);
-                                AppModel.Instance.AllProperties[5].Content += DataModel.AbilityJobFantasy[Zahl];
+                                AllProperties[5].Content += DataModel.AbilityJobFantasy[Zahl];
                             }
                         }
                     }
@@ -150,7 +157,7 @@ namespace NPCGenerator.Services
             Random RandomNumber = new Random();
             int Zahl = RandomNumber.Next(0, Model.DataModel.EyeList.Count);
 
-            AppModel.Instance.AllProperties[6].Content = Model.DataModel.EyeList[Zahl];
+            AllProperties[6].Content = Model.DataModel.EyeList[Zahl];
         }
 
         public static void RandomHair()
@@ -164,7 +171,7 @@ namespace NPCGenerator.Services
             Zahl = RandomNumber.Next(0, Model.DataModel.EyeList.Count);
             ContentUpdate = ContentUpdate + " " +Model.DataModel.HairstyleList[Zahl];
 
-            AppModel.Instance.AllProperties[7].Content = ContentUpdate;
+            AllProperties[7].Content = ContentUpdate;
         }
 
         public static void RandomAbilitiesSmall()
@@ -172,7 +179,7 @@ namespace NPCGenerator.Services
             Random RandomNumber = new Random();
             int Zahl = RandomNumber.Next(0, Model.DataModel.AbilityHobby.Count);
 
-            AppModel.Instance.AllProperties[5].Content = DataModel.AbilityHobby[Zahl];
+            AllProperties[5].Content = DataModel.AbilityHobby[Zahl];
         }
 
     }

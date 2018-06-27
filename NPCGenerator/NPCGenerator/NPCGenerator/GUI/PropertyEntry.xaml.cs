@@ -11,8 +11,6 @@ namespace NPCGenerator.GUI
 		public PropertyEntry ()
 		{
 			InitializeComponent ();
-            var x = BindingContext;
-            var y = this;
             BindingContextChanged += PropertyEntry_BindingContextChanged;
 		}
 
@@ -32,7 +30,7 @@ namespace NPCGenerator.GUI
                 case PropertyTypes.Int:
                     ContentCTRL.ControlTemplate = Resources["Number"] as ControlTemplate;
                     break;
-                case PropertyTypes.Colour:
+                case PropertyTypes.Color:
                     ContentCTRL.ControlTemplate = Resources["Color"] as ControlTemplate;
                     break;
                 case PropertyTypes.Date:
