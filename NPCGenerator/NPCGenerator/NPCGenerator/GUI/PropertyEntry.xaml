@@ -6,6 +6,7 @@
     <ContentView.Resources>
         <conv:ContentBool x:Key="ContentBool"/>
         <conv:ContentInt x:Key="ContentInt"/>
+        <conv:DateCulture x:Key="DateCulture"/>
         
         <ControlTemplate x:Key="String">
             <Entry BindingContext="{TemplateBinding BindingContext}" Text="{Binding Content_Man, Mode=TwoWay}"/>
@@ -19,8 +20,11 @@
         <ControlTemplate x:Key="Boolean">
             <Switch BindingContext="{TemplateBinding BindingContext}" IsToggled="{Binding Content_Man, Mode=TwoWay}"/>
         </ControlTemplate>
+        <ControlTemplate x:Key="Dateold">
+            <DatePicker BindingContext="{TemplateBinding BindingContext}" IsEnabled="False" Date="{Binding Content_Man, Mode=OneWay}"/>
+        </ControlTemplate>
         <ControlTemplate x:Key="Date">
-            <DatePicker BindingContext="{TemplateBinding BindingContext}" Date="{Binding Content_Man, Mode=TwoWay}"/>
+            <Label BindingContext="{TemplateBinding BindingContext}" Text="{Binding Content_Man, Mode=OneWay, Converter={StaticResource DateCulture}}"/>
         </ControlTemplate>
 
     </ContentView.Resources>
@@ -33,7 +37,7 @@
                 <ColumnDefinition Width="Auto"/>
             </Grid.ColumnDefinitions>
             <Label Grid.Column="0" Text="{Binding PropertyName, Mode=OneWay}" FontSize="Medium"/>
-            <ContentView Grid.Column="1" x:Name="ContentCTRL" Margin="50,0,0,0"/>
+            <ContentView Grid.Column="1" x:Name="ContentCTRL" Margin="50,0,0,0" VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand"/>
             <Switch Grid.Column="2" IsToggled="{Binding IsUserFixed, Mode=TwoWay}"/>
             <Button Grid.Column="3" Text="Rand" Clicked="Button_Clicked"/>
         </Grid>
