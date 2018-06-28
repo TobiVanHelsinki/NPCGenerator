@@ -25,9 +25,9 @@ namespace NPCGenerator.GUI.Converter
             {
                 return value;
             }
-            if (value is string && int.TryParse((value as string), out int result))
+            if (value is string /*&& int.TryParse((value as string), out int result)*/)
             {
-                return result;
+                return TLIB.NumberHelper.CalcToInt(value as string, true);
             }
             return 0;
         }
