@@ -22,6 +22,8 @@ namespace NPCGenerator.Data
         public const string HairStyle = "HairStyle";
         public const string HairColor = "HairColor";
         public const string Birthdate = "Birthdate";
+        public const string Abilities = "Abilities";
+        
 
         public const string GenreShadowRun = "ShadowRun";
         public const string GenreFantasy = "Fantasy";
@@ -165,7 +167,7 @@ namespace NPCGenerator.Data
             new PossiblePropertyContent("violett"),
         };
 
-        static public IEnumerable<PossiblePropertyContent> AbilityList = new List<PossiblePropertyContent>() {
+        static public IEnumerable<PossiblePropertyContent> HobbyList = new List<PossiblePropertyContent>() {
             new PossiblePropertyContent("Cooking"),
             new PossiblePropertyContent("Chess"),
             new PossiblePropertyContent("Crafting"),
@@ -180,23 +182,33 @@ namespace NPCGenerator.Data
             new PossiblePropertyContent("Gossip"),
         };
 
-        static public IEnumerable<PossiblePropertyContent> AgeList = new List<PossiblePropertyContent>() {
-            new PossiblePropertyContent(10),
-            new PossiblePropertyContent(22),
-            new PossiblePropertyContent(24),
-            new PossiblePropertyContent(36),
-            new PossiblePropertyContent(48),
-            new PossiblePropertyContent(60),
-            new PossiblePropertyContent(72),
+        static public IEnumerable<PossiblePropertyContent> AbilityList = new List<PossiblePropertyContent>() {
+            new PossiblePropertyContent("Warrior", ()=>Genre.GenreName == GenreFantasy),
+            new PossiblePropertyContent("Mage", ()=>Genre.GenreName == GenreFantasy),
+            new PossiblePropertyContent("Thief", ()=>Genre.GenreName == GenreFantasy),
+            new PossiblePropertyContent("Singer", ()=>Genre.GenreName == GenreFantasy),
+            new PossiblePropertyContent("Scout", ()=>Genre.GenreName == GenreFantasy),
+            new PossiblePropertyContent("Scholar", ()=>Genre.GenreName == GenreFantasy),
+            new PossiblePropertyContent("Hunter", ()=>Genre.GenreName == GenreFantasy),
+            new PossiblePropertyContent("Farmer", ()=>Genre.GenreName == GenreFantasy),
+            new PossiblePropertyContent("Smith", ()=>Genre.GenreName == GenreFantasy),
+            new PossiblePropertyContent("Cleric", ()=>Genre.GenreName == GenreFantasy),
+            new PossiblePropertyContent("Robber", ()=>Genre.GenreName == GenreFantasy),
+            new PossiblePropertyContent("Carpenter", ()=>Genre.GenreName == GenreFantasy),
+
+            new PossiblePropertyContent("StreetSam", ()=>Genre.GenreName == GenreShadowRun),
+            new PossiblePropertyContent("Hacker", ()=>Genre.GenreName == GenreShadowRun),
+            new PossiblePropertyContent("Rigger", ()=>Genre.GenreName == GenreShadowRun),
+            new PossiblePropertyContent("Mage", ()=>Genre.GenreName == GenreShadowRun),
+            new PossiblePropertyContent("Adept", ()=>Genre.GenreName == GenreShadowRun),
+            new PossiblePropertyContent("Social", ()=>Genre.GenreName == GenreShadowRun),
+            new PossiblePropertyContent("Squater", ()=>Genre.GenreName == GenreShadowRun),
+            new PossiblePropertyContent("Ganger", ()=>Genre.GenreName == GenreShadowRun),
+            new PossiblePropertyContent("Exec", ()=>Genre.GenreName == GenreShadowRun),
+            new PossiblePropertyContent("Smuggler", ()=>Genre.GenreName == GenreShadowRun),
+
         };
 
-
-        static public IEnumerable<PossiblePropertyContent> DateList = new List<PossiblePropertyContent>() {
-            new PossiblePropertyContent(DateTime.Now),
-            new PossiblePropertyContent(DateTime.Now.AddDays(1)),
-            new PossiblePropertyContent(DateTime.Now.AddDays(2)),
-            new PossiblePropertyContent(DateTime.Now.AddDays(3)),
-        };
         #endregion
 
         public static void CreateTestModel()
@@ -212,11 +224,13 @@ namespace NPCGenerator.Data
             Props.Add(new PropertyModel(Name, PropertyTypes.String, NameList));
             Props.Add(new PropertyModel(Job, PropertyTypes.String, JobList));
             Props.Add(new PropertyModel(Age, PropertyTypes.Int, new DynamicAgeCollection(100)));
-            Props.Add(new PropertyModel(Hobby, PropertyTypes.String, AbilityList) { Content = "NDY" });
+            Props.Add(new PropertyModel(Hobby, PropertyTypes.String, HobbyList) { Content = "NDY" });
             Props.Add(new PropertyModel(Eye, PropertyTypes.String, EyeList));
             Props.Add(new PropertyModel(HairColor, PropertyTypes.String, HairColorList));
             Props.Add(new PropertyModel(HairStyle, PropertyTypes.String, HairStyleList));
             Props.Add(new PropertyModel(Birthdate, PropertyTypes.Date, new DynamicDateCollection()));
+            Props.Add(new PropertyModel(Abilities, PropertyTypes.String, new ListCollection(4, AbilityList)));
+            
             //Props.Add(new PropertyModel(Special_Placeholder,  PropertyTypes.Boolean, Content = false );
 
             //Use All properties at all Genres
