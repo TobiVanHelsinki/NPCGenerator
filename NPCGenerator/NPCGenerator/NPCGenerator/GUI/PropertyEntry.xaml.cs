@@ -39,6 +39,9 @@ namespace NPCGenerator.GUI
                 case PropertyTypes.Boolean:
                     ContentCTRL.ControlTemplate = Resources["Boolean"] as ControlTemplate;
                     break;
+                case PropertyTypes.Collection:
+                    ContentCTRL.ControlTemplate = Resources["Collection"] as ControlTemplate;
+                    break;
                 default:
                     break;
             }

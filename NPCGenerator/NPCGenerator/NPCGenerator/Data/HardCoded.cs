@@ -229,7 +229,7 @@ namespace NPCGenerator.Data
             Props.Add(new PropertyModel(HairColor, PropertyTypes.String, HairColorList));
             Props.Add(new PropertyModel(HairStyle, PropertyTypes.String, HairStyleList));
             Props.Add(new PropertyModel(Birthdate, PropertyTypes.Date, new DynamicDateCollection()));
-            Props.Add(new PropertyModel(Abilities, PropertyTypes.String, new ListCollection(4, AbilityList)));
+            Props.Add(new PropertyModel(Abilities, PropertyTypes.Collection, new ListCollection(40, AbilityList)));
             
             //Props.Add(new PropertyModel(Special_Placeholder,  PropertyTypes.Boolean, Content = false );
 

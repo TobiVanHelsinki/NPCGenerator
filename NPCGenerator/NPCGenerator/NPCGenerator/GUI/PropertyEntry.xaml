@@ -26,6 +26,9 @@
         <ControlTemplate x:Key="Date">
             <Label BindingContext="{TemplateBinding BindingContext}" Text="{Binding Content_Man, Mode=OneWay, Converter={StaticResource DateCulture}}"/>
         </ControlTemplate>
+        <ControlTemplate x:Key="Collection">
+            <Label BindingContext="{TemplateBinding BindingContext}" Text="{Binding Content_Man, Mode=OneWay}" LineBreakMode="WordWrap"/>
+        </ControlTemplate>
 
     </ContentView.Resources>
     <ContentView.Content>
@@ -36,10 +39,13 @@
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="Auto"/>
             </Grid.ColumnDefinitions>
-            <Label Grid.Column="0" Text="{Binding PropertyName, Mode=OneWay}" FontSize="Medium"/>
-            <ContentView Grid.Column="1" x:Name="ContentCTRL" Margin="5,0,0,0" VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand"/>
-            <Switch Grid.Column="2" IsToggled="{Binding IsUserFixed, Mode=TwoWay}"/>
-            <Button Grid.Column="3" Text="Rand" Clicked="Button_Clicked"/>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Label Grid.Column="0" Text="{Binding PropertyName, Mode=OneWay}" FontSize="Medium" VerticalOptions="Center"/>
+            <ContentView Grid.Column="1" x:Name="ContentCTRL" Margin="5,0,0,0" VerticalOptions="Center" HorizontalOptions="FillAndExpand"/>
+            <Switch Grid.Column="2" IsToggled="{Binding IsUserFixed, Mode=TwoWay}" VerticalOptions="Center"/>
+            <Button Grid.Column="3" Text="Rand" Clicked="Button_Clicked" VerticalOptions="Center"/>
         </Grid>
     </ContentView.Content>
 </ContentView>

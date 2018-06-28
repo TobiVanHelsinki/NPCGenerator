@@ -11,7 +11,8 @@ namespace NPCGenerator.Model
         Int,
         Color,
         Date,
-        Boolean
+        Boolean,
+        Collection
     }
     static class PropertyTypeHelper
     {
