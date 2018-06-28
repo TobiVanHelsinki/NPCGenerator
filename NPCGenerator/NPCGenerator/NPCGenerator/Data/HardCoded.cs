@@ -10,7 +10,7 @@ namespace NPCGenerator.Data
         #region Model Access Points
         static AppModel Model => AppModel.Instance;
         static PropertyModels Props => AppModel.Instance.AllProperties;
-        static GenreModel Genre => AppModel.Instance.CurrentGenre;
+        static string GenreName => AppModel.Instance.CurrentGenre.GenreName;
         #endregion
         #region Consts
         public const string Name = "Name";
@@ -35,38 +35,38 @@ namespace NPCGenerator.Data
 
         static public IEnumerable<PossiblePropertyContent> JobList = new List<PossiblePropertyContent>()
         {
-            new PossiblePropertyContent("Warrior", ()=>Genre.GenreName == GenreFantasy),
-            new PossiblePropertyContent("Mage", ()=>Genre.GenreName == GenreFantasy),
-            new PossiblePropertyContent("Thief", ()=>Genre.GenreName == GenreFantasy),
-            new PossiblePropertyContent("Singer", ()=>Genre.GenreName == GenreFantasy),
-            new PossiblePropertyContent("Scout", ()=>Genre.GenreName == GenreFantasy),
-            new PossiblePropertyContent("Scholar", ()=>Genre.GenreName == GenreFantasy),
-            new PossiblePropertyContent("Hunter", ()=>Genre.GenreName == GenreFantasy),
-            new PossiblePropertyContent("Farmer", ()=>Genre.GenreName == GenreFantasy),
-            new PossiblePropertyContent("Smith", ()=>Genre.GenreName == GenreFantasy),
-            new PossiblePropertyContent("Cleric", ()=>Genre.GenreName == GenreFantasy),
-            new PossiblePropertyContent("Robber", ()=>Genre.GenreName == GenreFantasy),
-            new PossiblePropertyContent("Carpenter", ()=>Genre.GenreName == GenreFantasy),
+            new PossiblePropertyContent("Warrior", ()=>GenreName == GenreFantasy),
+            new PossiblePropertyContent("Mage", ()=>GenreName == GenreFantasy),
+            new PossiblePropertyContent("Thief", ()=>GenreName == GenreFantasy),
+            new PossiblePropertyContent("Singer", ()=>GenreName == GenreFantasy),
+            new PossiblePropertyContent("Scout", ()=>GenreName == GenreFantasy),
+            new PossiblePropertyContent("Scholar", ()=>GenreName == GenreFantasy),
+            new PossiblePropertyContent("Hunter", ()=>GenreName == GenreFantasy),
+            new PossiblePropertyContent("Farmer", ()=>GenreName == GenreFantasy),
+            new PossiblePropertyContent("Smith", ()=>GenreName == GenreFantasy),
+            new PossiblePropertyContent("Cleric", ()=>GenreName == GenreFantasy),
+            new PossiblePropertyContent("Robber", ()=>GenreName == GenreFantasy),
+            new PossiblePropertyContent("Carpenter", ()=>GenreName == GenreFantasy),
 
-            new PossiblePropertyContent("StreetSam", ()=>Genre.GenreName == GenreShadowRun),
-            new PossiblePropertyContent("Hacker", ()=>Genre.GenreName == GenreShadowRun),
-            new PossiblePropertyContent("Rigger", ()=>Genre.GenreName == GenreShadowRun),
-            new PossiblePropertyContent("Mage", ()=>Genre.GenreName == GenreShadowRun),
-            new PossiblePropertyContent("Adept", ()=>Genre.GenreName == GenreShadowRun),
-            new PossiblePropertyContent("Social", ()=>Genre.GenreName == GenreShadowRun),
-            new PossiblePropertyContent("Squater", ()=>Genre.GenreName == GenreShadowRun),
-            new PossiblePropertyContent("Ganger", ()=>Genre.GenreName == GenreShadowRun),
-            new PossiblePropertyContent("Exec", ()=>Genre.GenreName == GenreShadowRun),
-            new PossiblePropertyContent("Smuggler", ()=>Genre.GenreName == GenreShadowRun),
+            new PossiblePropertyContent("StreetSam", ()=>GenreName == GenreShadowRun),
+            new PossiblePropertyContent("Hacker", ()=>GenreName == GenreShadowRun),
+            new PossiblePropertyContent("Rigger", ()=>GenreName == GenreShadowRun),
+            new PossiblePropertyContent("Mage", ()=>GenreName == GenreShadowRun),
+            new PossiblePropertyContent("Adept", ()=>GenreName == GenreShadowRun),
+            new PossiblePropertyContent("Social", ()=>GenreName == GenreShadowRun),
+            new PossiblePropertyContent("Squater", ()=>GenreName == GenreShadowRun),
+            new PossiblePropertyContent("Ganger", ()=>GenreName == GenreShadowRun),
+            new PossiblePropertyContent("Exec", ()=>GenreName == GenreShadowRun),
+            new PossiblePropertyContent("Smuggler", ()=>GenreName == GenreShadowRun),
 
-            new PossiblePropertyContent("Teacher", ()=>Genre.GenreName == GenreModern),
-            new PossiblePropertyContent("Baker", ()=>Genre.GenreName == GenreModern),
-            new PossiblePropertyContent("Doctor", ()=>Genre.GenreName == GenreModern),
-            new PossiblePropertyContent("Student", ()=>Genre.GenreName == GenreModern),
-            new PossiblePropertyContent("Taxidriver", ()=>Genre.GenreName == GenreModern),
-            new PossiblePropertyContent("Programmer", ()=>Genre.GenreName == GenreModern),
-            new PossiblePropertyContent("Barkeeper", ()=>Genre.GenreName == GenreModern),
-            new PossiblePropertyContent("Politican", ()=>Genre.GenreName == GenreModern),
+            new PossiblePropertyContent("Teacher", ()=>GenreName == GenreModern),
+            new PossiblePropertyContent("Baker", ()=>GenreName == GenreModern),
+            new PossiblePropertyContent("Doctor", ()=>GenreName == GenreModern),
+            new PossiblePropertyContent("Student", ()=>GenreName == GenreModern),
+            new PossiblePropertyContent("Taxidriver", ()=>GenreName == GenreModern),
+            new PossiblePropertyContent("Programmer", ()=>GenreName == GenreModern),
+            new PossiblePropertyContent("Barkeeper", ()=>GenreName == GenreModern),
+            new PossiblePropertyContent("Politican", ()=>GenreName == GenreModern),
 
             new PossiblePropertyContent("Adventurer"),
             new PossiblePropertyContent("Pirate"),
@@ -184,30 +184,18 @@ namespace NPCGenerator.Data
         };
 
         static public IEnumerable<PossiblePropertyContent> AbilityList = new List<PossiblePropertyContent>() {
-            new PossiblePropertyContent("Warrior", ()=>Genre.GenreName == GenreFantasy),
-            new PossiblePropertyContent("Mage", ()=>Genre.GenreName == GenreFantasy),
-            new PossiblePropertyContent("Thief", ()=>Genre.GenreName == GenreFantasy),
-            new PossiblePropertyContent("Singer", ()=>Genre.GenreName == GenreFantasy),
-            new PossiblePropertyContent("Scout", ()=>Genre.GenreName == GenreFantasy),
-            new PossiblePropertyContent("Scholar", ()=>Genre.GenreName == GenreFantasy),
-            new PossiblePropertyContent("Hunter", ()=>Genre.GenreName == GenreFantasy),
-            new PossiblePropertyContent("Farmer", ()=>Genre.GenreName == GenreFantasy),
-            new PossiblePropertyContent("Smith", ()=>Genre.GenreName == GenreFantasy),
-            new PossiblePropertyContent("Cleric", ()=>Genre.GenreName == GenreFantasy),
-            new PossiblePropertyContent("Robber", ()=>Genre.GenreName == GenreFantasy),
-            new PossiblePropertyContent("Carpenter", ()=>Genre.GenreName == GenreFantasy),
+            new PossiblePropertyContent("Sword", ()=>GenreName == GenreFantasy && Props[Sex].Content as string == "Male"),
+            new PossiblePropertyContent("Kingdoms in your area", ()=>GenreName == GenreFantasy && Props[Sex].Content as string == "Male"),
 
-            new PossiblePropertyContent("StreetSam", ()=>Genre.GenreName == GenreShadowRun),
-            new PossiblePropertyContent("Hacker", ()=>Genre.GenreName == GenreShadowRun),
-            new PossiblePropertyContent("Rigger", ()=>Genre.GenreName == GenreShadowRun),
-            new PossiblePropertyContent("Mage", ()=>Genre.GenreName == GenreShadowRun),
-            new PossiblePropertyContent("Adept", ()=>Genre.GenreName == GenreShadowRun),
-            new PossiblePropertyContent("Social", ()=>Genre.GenreName == GenreShadowRun),
-            new PossiblePropertyContent("Squater", ()=>Genre.GenreName == GenreShadowRun),
-            new PossiblePropertyContent("Ganger", ()=>Genre.GenreName == GenreShadowRun),
-            new PossiblePropertyContent("Exec", ()=>Genre.GenreName == GenreShadowRun),
-            new PossiblePropertyContent("Smuggler", ()=>Genre.GenreName == GenreShadowRun),
+            new PossiblePropertyContent("Ranged Weappons", ()=>GenreName == GenreShadowRun),
+            new PossiblePropertyContent("Bars in seattle", ()=>GenreName == GenreShadowRun),
 
+            new PossiblePropertyContent("piano", ()=>GenreName == GenreShadowRun || GenreName == GenreModern),
+            new PossiblePropertyContent("cycling", ()=>GenreName == GenreShadowRun || GenreName == GenreModern),
+
+            new PossiblePropertyContent("wildlife"),
+            new PossiblePropertyContent("persuade"),
+            new PossiblePropertyContent("leading"),
         };
 
         #endregion
@@ -230,7 +218,7 @@ namespace NPCGenerator.Data
             Props.Add(new PropertyModel(HairColor, PropertyTypes.String, HairColorList));
             Props.Add(new PropertyModel(HairStyle, PropertyTypes.String, HairStyleList));
             Props.Add(new PropertyModel(Birthdate, PropertyTypes.Date, new DynamicDateCollection()));
-            Props.Add(new PropertyModel(Abilities, PropertyTypes.Collection, new ListCollection(5, AbilityList)));
+            Props.Add(new PropertyModel(Abilities, PropertyTypes.Collection, new ListCollection(4, AbilityList)));
             
             //Props.Add(new PropertyModel(Special_Placeholder,  PropertyTypes.Boolean, Content = false );
 
