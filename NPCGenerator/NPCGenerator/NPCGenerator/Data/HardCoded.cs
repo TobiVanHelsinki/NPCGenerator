@@ -204,7 +204,7 @@ namespace NPCGenerator.Data
         {
             Model.Genres.Add(new GenreModel(GenreFantasy, "fantasy.jpg") { StartDate = new DateTime(1500, 1, 1) });
             Model.Genres.Add(new GenreModel(GenreShadowRun, "shadowrun.png") { StartDate = new DateTime(1977, 1, 1) });
-            Model.Genres.Add(new GenreModel(GenreModern, "modern.jpg"));
+            Model.Genres.Add(new GenreModel(GenreModern, "modern.jpg") { StartDate = new DateTime(1983, 1, 1) });
             Model.Genres.Add(new GenreModel("More", "more.jpg"));
 
             //Ordering neccesary for functional dependencies
