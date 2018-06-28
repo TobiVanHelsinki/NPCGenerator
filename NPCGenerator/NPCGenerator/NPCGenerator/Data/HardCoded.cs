@@ -1,4 +1,5 @@
-﻿using NPCGenerator.Model;
+﻿using NPCGenerator.DataTypes;
+using NPCGenerator.Model;
 using System;
 using System.Collections.Generic;
 
@@ -224,12 +225,12 @@ namespace NPCGenerator.Data
             Props.Add(new PropertyModel(Name, PropertyTypes.String, NameList));
             Props.Add(new PropertyModel(Job, PropertyTypes.String, JobList));
             Props.Add(new PropertyModel(Age, PropertyTypes.Int, new DynamicAgeCollection(100)));
-            Props.Add(new PropertyModel(Hobby, PropertyTypes.String, HobbyList) { Content = "NDY" });
+            Props.Add(new PropertyModel(Hobby, PropertyTypes.String, HobbyList));
             Props.Add(new PropertyModel(Eye, PropertyTypes.String, EyeList));
             Props.Add(new PropertyModel(HairColor, PropertyTypes.String, HairColorList));
             Props.Add(new PropertyModel(HairStyle, PropertyTypes.String, HairStyleList));
             Props.Add(new PropertyModel(Birthdate, PropertyTypes.Date, new DynamicDateCollection()));
-            Props.Add(new PropertyModel(Abilities, PropertyTypes.Collection, new ListCollection(40, AbilityList)));
+            Props.Add(new PropertyModel(Abilities, PropertyTypes.Collection, new ListCollection(5, AbilityList)));
             
             //Props.Add(new PropertyModel(Special_Placeholder,  PropertyTypes.Boolean, Content = false );
 

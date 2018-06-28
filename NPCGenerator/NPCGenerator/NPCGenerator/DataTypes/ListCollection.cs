@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using TLIB;
 
-namespace NPCGenerator.Data
+namespace NPCGenerator.DataTypes
 {
     class ListCollection : IList<PossiblePropertyContent>
     {
@@ -26,15 +26,24 @@ namespace NPCGenerator.Data
         PossiblePropertyContent CreateList(int count)
         {
             string ret = "";
-            foreach (var item in Items.Where(x => x.IsPossible() == true).RandomElements(count))
+            var filteredcollection = Items.Where(x => x.IsPossible() == true);
+            foreach (var item in filteredcollection.RandomElements(count, false))
             {
-                if (item.Content != null)
+                if (item?.Content != null)
                 {
                     ret += item.Content.ToString();
                     ret += ItemSeperator;
                 }
             }
-            return new PossiblePropertyContent(ret.Remove(ret.Length - ItemSeperator.Length));
+            foreach (var item in ItemSeperator.Reverse())
+            {
+                ret = ret.TrimEnd(item);
+            }
+            if (string.IsNullOrEmpty(ret))
+            {
+                ret = "-";
+            }
+            return new PossiblePropertyContent(ret);
         }
 
         public PossiblePropertyContent this[int index] { get { return CreateList(index); } set { } }
@@ -42,14 +51,14 @@ namespace NPCGenerator.Data
 
         public IEnumerator<PossiblePropertyContent> GetEnumerator()
         {
-            for (int i = 1; i < Count + 1; i++)
+            for (int i = 0; i < Count + 1; i++)
             {
                 yield return CreateList(i);
             }
         }
         IEnumerator IEnumerable.GetEnumerator()
         {
-            for (int i = 1; i < Count + 1; i++)
+            for (int i = 0; i < Count + 1; i++)
             {
                 yield return CreateList(i);
             }

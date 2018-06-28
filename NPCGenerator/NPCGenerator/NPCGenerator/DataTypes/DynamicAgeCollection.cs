@@ -4,38 +4,35 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Text;
 
-namespace NPCGenerator.Data
+namespace NPCGenerator.DataTypes
 {
-    class DynamicDateCollection : IList<PossiblePropertyContent>
+    class DynamicAgeCollection : IList<PossiblePropertyContent>
     {
-        const int DaysInYear = 365;
-        DateTime StartDate => AppModel.Instance.CurrentGenre.StartDate;
-
-        public int Count => DaysInYear;
-
-        PossiblePropertyContent DateFromInt(int index)
+        public DynamicAgeCollection(int count)
         {
-            return new PossiblePropertyContent(StartDate.AddDays(index).AddYears((int)AppModel.Instance.AllProperties[HardCoded.Age].Content));
+            Count = count;
         }
 
-        public PossiblePropertyContent this[int index] { get { return DateFromInt(index); } set { } }
+        // hier könnten jetzt auch so sachen wie alters-offset oder normalverteilung etc implementiert werden.
 
+        public PossiblePropertyContent this[int index] { get { return new PossiblePropertyContent(index); } set {  } }
+
+        public int Count { get; set; }
 
         public IEnumerator<PossiblePropertyContent> GetEnumerator()
         {
-            for (int i = 1; i < Count + 1; i++)
+            for (int i = 0; i < Count; i++)
             {
-                yield return DateFromInt(i);
+                yield return new PossiblePropertyContent(i);
             }
         }
         IEnumerator IEnumerable.GetEnumerator()
         {
-            for (int i = 1; i < Count + 1; i++)
+            for (int i = 0; i < Count; i++)
             {
-                yield return DateFromInt(i);
+                yield return new PossiblePropertyContent(i);
             }
         }
-
 
         #region NotImportant Properties
         public bool IsReadOnly => true;
@@ -46,7 +43,7 @@ namespace NPCGenerator.Data
 
         public bool Contains(PossiblePropertyContent item) => false;
 
-        public void CopyTo(PossiblePropertyContent[] array, int arrayIndex) { }
+        public void CopyTo(PossiblePropertyContent[] array, int arrayIndex){}
 
         public int IndexOf(PossiblePropertyContent item) => 0;
 
@@ -56,5 +53,6 @@ namespace NPCGenerator.Data
 
         public void RemoveAt(int index) { }
         #endregion
+
     }
 }
