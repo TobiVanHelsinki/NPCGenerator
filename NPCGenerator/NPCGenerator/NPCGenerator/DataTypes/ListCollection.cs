@@ -11,7 +11,7 @@ namespace NPCGenerator.DataTypes
     class ListCollection : IList<PossiblePropertyContent>
     {
         readonly IEnumerable<PossiblePropertyContent> Items;
-        const string ItemSeperator = ";";
+        const string ItemSeperator = "; ";
 
         public ListCollection(int maxitems, IEnumerable<PossiblePropertyContent> items)
         {
